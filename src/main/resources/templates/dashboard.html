@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Sborovnatodo</title>
+</head>
+<body>
+        <h1>Vítejte, <span th:text="${jmeno}">Uživatel</span>!</h1>
+
+        <p>Jste přihlášeni.</p>
+        <p>Přihlášený uživatel: <span th:text="${jmeno}">Uživatel</span></p>
+
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Odhlásit se</button>
+        </form>
+
+
+
+</body>
+</html>

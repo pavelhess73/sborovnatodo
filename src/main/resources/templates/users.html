@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznam uživatelů</title>
+</head>
+<body>
+<h2>Seznam uživatelů</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Jméno</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Aktivní</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${uzivatele}">
+        <td th:text="${user.jmeno}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.role}"></td>
+        <td th:text="${user.aktivni ? 'Ano' : 'Ne'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Odhlásit se</button>
+</form>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-package cz.skolaprojekt.sborovnatodo;
+package cz.skolaprojekt.sborovnatodo.utils;
 
 import cz.skolaprojekt.sborovnatodo.model.Role;
 import cz.skolaprojekt.sborovnatodo.model.User;
@@ -17,8 +17,10 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        System.out.println("▶ DataLoader startuje...");
+
         userService.findByEmail("admin@skolamolekula.cz").ifPresentOrElse(
-                u -> {},
+                u -> System.out.println("👤 Admin už existuje."),
                 () -> {
                     User admin = User.builder()
                             .email("admin@skolamolekula.cz")
@@ -32,4 +34,5 @@ public class DataLoader implements CommandLineRunner {
                 }
         );
     }
+
 }
